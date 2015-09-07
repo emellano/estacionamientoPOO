@@ -7,7 +7,10 @@ if ($_POST['estacionar']=="ingreso") {
 	Estacionamiento::Guardar($patente);
 }
 elseif ($_POST['estacionar']=="egreso") {
-	echo $_POST['estacionar'];
+	$datos=Estacionamiento::Leer();
+	echo "<pre>";
+	var_dump($datos);
+	echo "</pre>";
 }else{
 	header("location:index.php");
 }

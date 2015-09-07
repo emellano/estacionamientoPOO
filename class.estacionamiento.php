@@ -6,5 +6,17 @@ class Estacionamiento{
 		fwrite($archivo, $patente.">>".$fecha."\n");
 		fclose($archivo);
 	}
+
+	public static function Leer(){
+		$listadeautos=array();
+		$archivo=fopen('auto.txt',"r");
+		while(!feof($archivo)){
+			$renglon=fgets($archivo);
+			$auto = explode(">>", $renglon);
+			$listadeautos[]=$auto;
+		}
+		fclose($archivo);
+		return $listadeautos;
+	}
 }
 ?>
